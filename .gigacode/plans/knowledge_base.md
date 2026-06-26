@@ -3,8 +3,8 @@
 ## Project Information
 - **Project Name**: gpuBladeSoft - PSEmuPro GPU Plugin Source Code Restoration
 - **Original Author**: edgbla (emu-russia forum)
-- **Current Status**: Phase 2 In Progress - Target Selection
-- **Target Version**: 0.34 (latest Windows version)
+- **Current Status**: Phase 3 - Decompilation Setup (IN PROGRESS)
+- **Target Version**: 1.64 (latest Windows version, 25 Aug 2019)
 
 ## Key Resources
 
@@ -41,21 +41,35 @@ typedef struct {
 extern GPUplugin GPUpluginInterface;
 ```
 
+## Version 1.64 Features (25 Aug 2019)
+
+### Major Features
+- **Multi-threaded Renderer**: Configurable threads (1-6), most beneficial at high internal resolutions (4x4+)
+- **Internal Resolution**: Fixed artifacts, maximum increased to 16x16
+- **Aspect Ratio**: Custom aspect ratio option added
+- **Platform Support**: Windows (x86) and Linux (x86_64) builds
+- **Bugfixes**: Shader parameters, negative offset/screen scaling values
+
+### Performance Notes
+- Multi-threading most beneficial at high internal resolutions
+- Setting threads above physical cores decreases FPS
+- Uses 100% of allocated threads
+- Power-saving technologies should be disabled for max performance
+
 ## Current Research Status
 
 ### Emu-Russia Forum Topic
 - **URL**: https://forum.emu-russia.net/viewtopic.php?f=29&t=1188
 - **Status**: ACCESSED (COMPLETED)
 - **Extracted**: GPU plugin versions, author information, feature list
-- **Target Version**: 0.34 (latest Windows version)
+- **Target Version**: 1.64 (latest Windows version)
 - **Author**: edgbla (user ID: 735)
-- **System Specs**: Intel Core Quad 9300, 4GB RAM, GeForce 9800Gtx
 
-### Pcsx Reference
-- Pcsx is the reference emulator for PSEmuPro plugins
-- Source code contains plugin interface definitions
-- GPU implementation can serve as reference
-- Downloaded PSEmuPro plugin documentation from archive.org
+### Available Binary Files
+- `LFS/extracted/plugins/gpuBladeSoft-1.64/` - Extracted version 1.64
+- `LFS/extracted/plugins/gpuBladeSoft-1.64.idb` - IDA Pro database
+- `LFS/extracted/configs/gpuBladeSoft-1.64.ini` - Configuration file
+- `LFS/extracted/shaders/` - Shader files compatible with gpuPeteOGL2
 
 ## Target Selection Criteria
 
@@ -109,12 +123,12 @@ extern GPUplugin GPUpluginInterface;
 
 ## Documentation Created
 
-### Phase 1 Deliverables
+### Phase 1-2 Deliverables
 1. **Emu-Russia Forum Information**
    - Downloaded HTML archive
    - Extracted GPU plugin version history
    - Documented author information (edgbla)
-   - Identified version 0.34 as target
+   - Identified version 1.64 as target
 
 2. **PSEmuPro Plugin Documentation**
    - Archived PSEmuPro plugin API documentation
@@ -126,6 +140,12 @@ extern GPUplugin GPUpluginInterface;
    - Documented plugin architecture
    - Identified technical challenges
 
+### Version 1.64 Specific
+- Multi-threaded renderer architecture
+- Internal resolution handling
+- Windows/Linux platform differences
+- Shader compatibility with gpuPeteOGL2
+
 ## References
 - PSEmuPro plugin development documentation
 - PlayStation GPU hardware documentation
@@ -133,14 +153,14 @@ extern GPUplugin GPUpluginInterface;
 - Emu-Russia forum discussions
 
 ## Progress
-- **Phase**: Target Selection (IN PROGRESS)
-- **Tasks Completed**: 10
-- **Target Selected**: Version 0.34
-- **Directory Structure**: Organized
-- **Next Phase**: Decompilation Setup
+- **Phase**: Decompilation Setup (IN PROGRESS)
+- **Tasks Completed**: 14
+- **Target Selected**: Version 1.64
+- **Next Phase**: Decompilation
 
-### Phase 2 Completed Items
-- [x] Directory structure organized (gpu_plugins/, decompiled/, etc.)
-- [x] Archive verification completed
-- [x] Target selection documented
-- [x] Phase 2 progress tracking initiated
+### Phase 3 Starting Items
+- [x] Binary extracted and verified
+- [x] Plugin structure analyzed
+- [x] Available files documented
+- [ ] Create decompilation script
+- [ ] Test decompilation environment

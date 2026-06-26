@@ -67,8 +67,8 @@ void GPUvblank(int count);
 
 ### 2. Emu-Russia Forum
 **Topic URL**: https://forum.emu-russia.net/viewtopic.php?f=29&t=1188
-**Status**: Not yet accessed
-**Expected Information**:
+**Status**: ACCESSED (COMPLETED)
+**Extracted Information**:
 - GPU plugin version history
 - Author information (edgbla)
 - Download links for various versions
@@ -95,6 +95,61 @@ void GPUvblank(int count);
   - Version strings in binary
   - Forum version history
   - Release dates
+
+### Version 1.64 (25 Aug 2019)
+- Multi-threaded renderer (1-6 threads configurable)
+- Internal resolution up to 16x16
+- Custom aspect ratio option
+- Windows (x86) and Linux (x86_64) builds
+- Shader compatibility with gpuPeteOGL2
+- Fixed shader parameters and negative offset/screen scaling
+
+### Version 1.46 (18 Mar 2016)
+- Changed image clipping method (removed glClipPlane)
+- Fixed shader-related bugs
+
+### Version 1.44 (19 Sep 2015)
+- GUI ported to GTK3
+- Quad rendering mode
+- Perspective-correct texturing
+- Interlacing improvements
+- Screen filters: RA 2x, Scale4x, Hq4x
+- Savestate picture quality improvements
+- Russian language localization
+
+### Version 1.40 (16 Sep 2011)
+- ZiNc interface added
+- Precise bilinear texture filtering
+- High-precision vertex coordinates
+- Texture caching enabled
+- Mouse and joystick support
+- Hotkey configuration page
+- Gun crosshairs (9 types)
+- Full VRAM and Wireframe modes
+- Picture mirroring
+
+### Version 0.24-0.30 (25 Jul 2009 - 31 Jul 2010)
+- Video recording fixes
+- Savestate picture drawing
+- DMA error fixes
+- Polyline rendering fixes
+- Auxiliary textures for shaders
+- Desktop settings and Native resolutions modes
+- GLSL shader partial support
+
+### Version 0.22 (25 Jul 2009)
+- Initial release mentioned in the topic
+- Fixed all known bugs at the time
+- On-screen messages for actions
+- Aspect ratio and screen shifting fixes
+
+## Available Binary Files
+
+### LFS/extracted/plugins/gpuBladeSoft-1.64/
+- Extracted version 1.64 plugin
+- Configuration file: gpuBladeSoft-1.64.ini
+- Language files (Russian)
+- Shader files compatible with gpuPeteOGL2
 
 ## Technical Specifications
 
@@ -131,6 +186,12 @@ The GPU plugin emulates the PlayStation GPU which includes:
 3. **Algorithm understanding** - Understanding complex rendering algorithms
 4. **API compatibility** - Ensuring recovered code matches PSEmuPro API
 
+### Multi-threaded Renderer Considerations
+- Thread count configuration
+- Work distribution across threads
+- Synchronization mechanisms
+- Performance optimization at high resolutions
+
 ## Next Steps
 
 1. Access Pcsx source code for reference
@@ -138,9 +199,28 @@ The GPU plugin emulates the PlayStation GPU which includes:
 3. Download and analyze target GPU plugin
 4. Create decompilation script
 5. Begin reverse engineering process
+6. Analyze multi-threaded renderer architecture
+7. Document shader compatibility with gpuPeteOGL2
 
 ## References
 - PSEmuPro plugin documentation (if available)
 - PlayStation GPU hardware documentation
 - Pcsx source code
 - Emu-Russia forum discussions
+- Changelog.md - Version history and features
+
+## Progress
+- **Phase**: Target Selection (COMPLETED)
+- **Tasks Completed**: 14
+- **Target Selected**: Version 1.64
+- **Directory Structure**: Organized
+- **Next Phase**: Decompilation Setup
+
+### Phase 2 Completed Items
+- [x] Directory structure organized (gpu_plugins/, decompiled/, etc.)
+- [x] Archive verification completed
+- [x] Target selection documented
+- [x] Version 1.64 extracted and verified
+- [x] Binary files documented
+- [x] Shader compatibility confirmed
+- [x] Phase 2 progress tracking updated

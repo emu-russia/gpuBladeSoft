@@ -2,9 +2,9 @@
 
 ## Project Status
 
-### Current Phase: Phase 2 - Target Selection (IN PROGRESS)
+### Current Phase: Phase 3 - Decompilation Setup (IN PROGRESS)
 
-### Progress: 10/55 tasks completed (18%)
+### Progress: 14/55 tasks completed (25%)
 
 ## Completed Tasks
 - [x] Project structure created
@@ -20,13 +20,18 @@
 - [x] GPU plugin archives verified
 - [x] gpu_plugins directory created
 - [x] Documentation updated
+- [x] Version 1.64 extracted and available in LFS/extracted/plugins/gpuBladeSoft-1.64
+- [x] Shader files verified for compatibility with gpuPeteOGL2
+- [x] Configuration file gpuBladeSoft-1.64.ini identified
+- [x] Language files (Russian) available
+- [x] Changelog.md updated with version 1.40-1.64 history
 
 ## Next Steps
-1. Download GPU plugin binary version 0.34
-2. Analyze plugin structure and exported functions
-3. Create IDA Pro 6.1 HexRays decompilation script
-4. Load DLL in IDA Pro and run decompilation
-5. Organize decompiled code into modules
+1. Analyze plugin structure and exported functions from version 1.64
+2. Create IDA Pro 6.1 HexRays decompilation script
+3. Load DLL in IDA Pro and run decompilation
+4. Organize decompiled code into modules
+5. Begin source code recovery
 
 ## Documentation Structure
 - `.gigacode/plans/gpu-plugin-restoration-plan.md` - Main project plan (10 phases)
@@ -38,7 +43,7 @@
 
 ## Target Information
 - **Target**: PSEmuPro GPU plugin for Windows
-- **Version**: 0.34 (latest from Emu-Russia forum)
+- **Version**: 1.64 (latest Windows version, 25 Aug 2019)
 - **Author**: edgbla (emu-russia forum user ID: 735)
 - **Goal**: Full source code restoration with documentation
 
@@ -54,8 +59,15 @@
 - `archives/psemupro-plugin-doc.txt` - PSEmuPro plugin documentation
 - `archives/gpu-plugin-research-summary.md` - Research summary
 
+## Available Binary Files
+- `LFS/extracted/plugins/gpuBladeSoft-1.64/` - Extracted version 1.64
+- `LFS/extracted/plugins/gpuBladeSoft-1.64.idb` - IDA Pro database
+- `LFS/extracted/configs/gpuBladeSoft-1.64.ini` - Configuration file
+- `LFS/extracted/shaders/` - Shader files compatible with gpuPeteOGL2
+
 ## Notes
 - All documentation and comments in English
 - Use Git LFS for large binary files
 - Maintain comprehensive documentation
-- Target version 0.34 includes all enhancements and bug fixes
+- Version 1.64 includes multi-threaded renderer support and Windows/Linux builds
+- Target version 1.64 includes all enhancements and bug fixes from 1.40-1.64

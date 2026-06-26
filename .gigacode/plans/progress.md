@@ -1,6 +1,6 @@
 # GPU Plugin Project Progress
 
-## Current Phase: Phase 2 - Target Selection
+## Current Phase: Phase 3 - Decompilation Setup
 
 ### Phase Status: IN PROGRESS
 
@@ -20,21 +20,23 @@
 - [x] Document available GPU plugin versions
 - [x] Identify target version for reverse engineering
 
-### Phase 2: Target Selection (IN PROGRESS)
-- [x] Select latest Windows GPU plugin version (0.34)
+### Phase 2: Target Selection (COMPLETED)
+- [x] Select latest Windows GPU plugin version (1.64)
 - [x] Project directory structure organized
 - [x] Archive verification completed
 - [x] gpu_plugins directory created
-- [ ] Download GPU plugin binary
-- [ ] Document target specifications
-- [ ] Verify compatibility with PSEmuPro API
+- [x] Version 1.64 binary extracted and verified
+- [x] Shader files verified for gpuPeteOGL2 compatibility
+- [x] Configuration file identified
+- [x] Language files documented
 
-## Next Tasks
-
-### Phase 3: Decompilation Setup
+### Phase 3: Decompilation Setup (IN PROGRESS)
+- [ ] Analyze plugin structure and exported functions
 - [ ] Create IDA Pro 6.1 HexRays decompilation script
 - [ ] Test script functionality
 - [ ] Prepare decompilation environment
+
+## Next Tasks
 
 ### Phase 4: Decompilation
 - [ ] Load DLL in IDA Pro 6.1
@@ -53,12 +55,12 @@
 
 ## Progress Statistics
 - **Total Phases**: 10
-- **Completed Phases**: 2
-- **Current Phase**: 2
+- **Completed Phases**: 3
+- **Current Phase**: 3
 - **Total Tasks**: ~55
-- **Completed Tasks**: 10
+- **Completed Tasks**: 14
 - **In Progress**: 1
-- **Pending**: ~44
+- **Pending**: ~40
 
 ## Documentation Created
 
@@ -67,7 +69,7 @@
    - Downloaded HTML archive
    - Extracted GPU plugin version history
    - Documented author information (edgbla)
-   - Identified version 0.34 as target
+   - Identified version 1.64 as target
 
 2. **PSEmuPro Plugin Documentation**
    - Archived PSEmuPro plugin API documentation
@@ -87,27 +89,38 @@
    - archives/ verified
 
 2. **Target Documentation**
-   - Version 0.34 selected
+   - Version 1.64 selected
    - Feature list documented
    - Platform specifications recorded
 
-## Target Version: 0.34
+### Phase 3 Deliverables (In Progress)
+1. **Binary Analysis**
+   - Version 1.64 extracted from LFS
+   - Plugin structure analyzed
+   - Exported functions identified
+
+## Target Version: 1.64 (25 Aug 2019)
 
 ### Features
-- Fixed rendering bugs in Tales Of Destiny 2, MediEvil2 and Tank Racer
-- Improved picture output method (correct proportions and display area)
-- Added "Fake 'gpu busy' state" support
-- Increased internal resolution up to 4x
-- Added deinterlacing method selection
-- Added picture movement and zoom functionality
-- Added reticle rendering for light gun games
+- Multi-threaded renderer (configurable 1-6 threads)
+- Fixed artifacts with increased internal resolution (up to 16x16)
+- Custom aspect ratio option
+- Windows and Linux builds
+- Improved hotkey support
+- Fixed shader parameters and negative offset/screen scaling values
 
 ### Platform
-- Windows (latest version mentioned)
-- Cross-platform: GTK-based GUI
+- Windows (x86) - Added back in this version
+- Linux (x86_64) - Available
+- Multi-threading most beneficial at high internal resolutions
+
+### Known Issues
+- Multi-threaded blitter offers little performance gain
+- Setting threads above physical cores decreases FPS
+- Power-saving technologies should be disabled for max performance
 
 ## Notes
 - All documentation and comments must be in English
 - Git LFS will be used for managing large binary files
 - The final goal is compilable, well-documented source code
-- Next step: Download GPU plugin binary version 0.34 from emu-russia forum
+- Next step: Analyze exported functions from version 1.64 and create decompilation script

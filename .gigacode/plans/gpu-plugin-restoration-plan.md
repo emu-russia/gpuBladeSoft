@@ -4,10 +4,17 @@
 This project aims to restore the source code for a GPU plugin for PSEmuPro (PlayStation emulator) through reverse engineering. The original author (edgbla from emu-russia) has not released the source code, so we will use decompilation techniques to recover the implementation.
 
 ## Current State
-- **Project Directory**: `c:\Work\gpuBladeSoft`
+- **Project Directory**: `c:\\Work\\gpuBladeSoft`
 - **Git Status**: Initialized with LFS support
-- **Current Files**: README.md, LICENSE
+- **Current Files**: README.md, LICENSE, Changelog.md
 - **Repository**: git@github.com:gigacode/gpuBladeSoft.git (hypothetical)
+- **Target Version**: 1.64 (extracted in LFS/extracted/plugins/gpuBladeSoft-1.64)
+- **Current Phase**: Phase 3 - Decompilation Setup
+- **Binary Files Available**:
+  - `LFS/extracted/plugins/gpuBladeSoft-1.64/` - Extracted version 1.64
+  - `LFS/extracted/plugins/gpuBladeSoft-1.64.idb` - IDA Pro database
+  - `LFS/extracted/configs/gpuBladeSoft-1.64.ini` - Configuration file
+  - `LFS/extracted/shaders/` - Shader files compatible with gpuPeteOGL2
 
 ## Phase 1: Information Gathering and Research
 
@@ -84,6 +91,13 @@ gpuBladeSoft/
 - Plugin version and build information
 - Dependencies and requirements
 - Expected functionality
+
+### 4.3 Version 1.64 Specifics
+- Multi-threaded renderer (1-6 threads configurable)
+- Internal resolution up to 16x16
+- Custom aspect ratio option
+- Windows (x86) and Linux (x86_64) builds
+- Shader compatibility with gpuPeteOGL2
 
 ## Phase 5: Create Decompilation Script
 
