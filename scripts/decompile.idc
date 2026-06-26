@@ -222,7 +222,7 @@ static main() {
                 fprintf(file, "/* Address: 0x%X */\n", func_ea);
                 fprintf(file, "/* Module: %s */\n\n", module);
                 fprintf(file, "/* Disassembly (HexRays decompilation not available in IDC for IDA 6.1) */\n\n");
-                var disasm = extract_disassembly(func_ea);
+"                auto disasm = extract_disassembly(func_ea);"}
                 fprintf(file, "%s", disasm);
                 fclose(file);
                 
