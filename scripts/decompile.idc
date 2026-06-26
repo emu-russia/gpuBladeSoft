@@ -165,7 +165,7 @@ static extract_disassembly(start_ea) {
 }
 
 // Main function
-static main() {
+main() {
     Message("========================================\n");
     Message("Decompilation Script for gpuBladeSoft 1.64\n");
     Message("========================================\n\n");
@@ -222,7 +222,7 @@ static main() {
                 fprintf(file, "/* Address: 0x%X */\n", func_ea);
                 fprintf(file, "/* Module: %s */\n\n", module);
                 fprintf(file, "/* Disassembly (HexRays decompilation not available in IDC for IDA 6.1) */\n\n");
-"                auto disasm = extract_disassembly(func_ea);"}
+                auto disasm = extract_disassembly(func_ea);
                 fprintf(file, "%s", disasm);
                 fclose(file);
                 
@@ -314,5 +314,3 @@ static main() {
     Message("========================================\n");
 }
 
-// Execute main function
-main();
