@@ -30,11 +30,7 @@
 - [x] Configuration file identified
 - [x] Language files documented
 
-### Phase 3: Decompilation Setup (IN PROGRESS)
-- [x] Analyze plugin structure and exported functions
-- [x] Create IDA Pro 6.1 HexRays decompilation script
-- [ ] Test script functionality
-- [ ] Prepare decompilation environment
+{"text": "### Phase 3: Decompilation Setup (IN PROGRESS)\n- [x] Analyze plugin structure and exported functions\n- [x] Create IDA Pro 6.1 HexRays decompilation script (Python)\n- [x] Create IDA Pro 6.1 HexRays IDC decompilation script\n- [ ] Test script functionality\n- [ ] Prepare decompilation environment"}
 
 ## Next Tasks
 

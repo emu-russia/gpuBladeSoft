@@ -2,13 +2,25 @@
 
 ## Overview
 
-This directory contains the decompilation script for extracting HexRays output from the gpuBladeSoft 1.64 GPU plugin DLL.
+This directory contains decompilation scripts for extracting HexRays output from the gpuBladeSoft 1.64 GPU plugin DLL.
 
-## Script: decompile.py
+## Available Scripts
+
+### 1. decompile.py (Python)
 
 The Python script (`decompile.py`) is designed to run within IDA Pro 6.1 with HexRays decompiler.
 
-### Features
+### 2. decompile.idc (IDC)
+
+The IDC script (`decompile.idc`) is designed for IDA Pro 6.1 when Python plugins don't work. This is the recommended script for IDA Pro 6.1.
+
+**Why use IDC version?**
+- IDA Pro 6.1 may not properly execute Python scripts
+- IDC is the native scripting language for IDA
+- More reliable for older IDA versions
+- No Python dependencies required
+
+## Features (Both Scripts)
 
 1. **Automatic function detection** - Identifies all decompilable functions
 2. **Module-based organization** - Groups functions by module based on naming conventions
@@ -17,14 +29,13 @@ The Python script (`decompile.py`) is designed to run within IDA Pro 6.1 with He
 5. **Logging** - Logs all operations and errors to `decompilation.log`
 6. **Detailed statistics** - Generates comprehensive statistics
 
-### Prerequisites
+## Prerequisites
 
 - IDA Pro 6.1 (or compatible version)
 - HexRays decompiler (with valid license)
-- Python 2.7 or Python 3.x (IDA compatible)
 - gpuBladeSoft 1.64 DLL binary
 
-### Output Structure
+## Output Structure
 
 ```
 decompiled/
@@ -47,7 +58,9 @@ decompiled/
     └── errors.log
 ```
 
-### Usage Instructions
+## Usage Instructions
+
+### For decompile.py (Python):
 
 1. **Load the DLL in IDA Pro 6.1**
    - Open IDA Pro 6.1
@@ -70,7 +83,29 @@ decompiled/
    - Check `decompiled/modules/` for module-based files
    - Check `decompiled/logs/decompilation.log` for statistics
 
-### Module Classification
+### For decompile.idc (IDC):
+
+1. **Load the DLL in IDA Pro 6.1**
+   - Open IDA Pro 6.1
+   - Load the GPU plugin DLL (`gpuBladeSoft-1.64.dll`)
+   - Allow IDA to complete automatic analysis
+
+2. **Verify HexRays availability**
+   - Check that HexRays decompiler is installed
+   - Verify your license is valid
+
+3. **Run the IDC script**
+   - Open File -> Script File (Alt+F7)
+   - Navigate to `scripts/decompile.idc`
+   - Select and run the script
+   - Script will automatically process all functions
+
+4. **Verify output**
+   - Check `decompiled/functions/` for individual function files
+   - Check `decompiled/modules/` for module-based files
+   - Check `decompiled/logs/decompilation.log` for statistics
+
+## Module Classification
 
 Functions are automatically classified into modules based on their names:
 
@@ -109,9 +144,9 @@ Functions are automatically classified into modules based on their names:
 | vdp | GPUsetVDPregisters, GPUgetVDPregisters |
 | extra | GPUsetExtra, GPUgetExtra |
 
-### Troubleshooting
+## Troubleshooting
 
-#### Common Issues
+### Common Issues
 
 1. **HexRays not available**
    - Ensure HexRays decompiler is installed
@@ -133,10 +168,25 @@ Functions are automatically classified into modules based on their names:
    - Check that IDA analysis completed
    - Some functions may be library stubs
 
-### Script Configuration
+### Python Script Issues
 
-The script can be customized by modifying the configuration section:
+If the Python script doesn't work in IDA Pro 6.1:
+- Try the IDC version instead
+- Verify Python is properly integrated with IDA
+- Check that Python scripts are enabled in IDA settings
 
+### IDC Script Issues
+
+If the IDC script doesn't work:
+- Ensure IDC is enabled in IDA
+- Check for syntax errors in the output window
+- Verify HexRays plugin is loaded
+
+## Script Configuration
+
+The scripts can be customized by modifying the configuration sections:
+
+### Python (decompile.py):
 ```python
 # Output directory
 OUTPUT_DIR = "decompiled"
@@ -149,7 +199,13 @@ MODULE_PREFIXES = {
 }
 ```
 
-### Post-Decompilation Processing
+### IDC (decompile.idc):
+```c
+// Module prefixes are in get_module_prefix() function
+// Add more conditions as needed
+```
+
+## Post-Decompilation Processing
 
 After running the decompilation script:
 
@@ -158,24 +214,6 @@ After running the decompilation script:
 3. Check statistics in `decompiled/logs/decompilation.log`
 4. Identify missing functions that need manual analysis
 5. Begin organizing code into source modules
-
-### Future Enhancements
-
-Potential improvements to the script:
-
-1. Support for newer IDA versions
-2. Automatic module detection (beyond naming conventions)
-3. Function classification heuristics
-4. Batch processing for multiple DLLs
-5. Integration with source code management
-6. Export to different formats (JSON, XML)
-
-### Notes
-
-- All output is in English as per project requirements
-- The script preserves function names from IDA
-- Module classification is based on naming conventions
-- Statistics include success rate and function counts
 
 ## Related Files
 
