@@ -31,8 +31,8 @@
 - [x] Language files documented
 
 ### Phase 3: Decompilation Setup (IN PROGRESS)
-- [ ] Analyze plugin structure and exported functions
-- [ ] Create IDA Pro 6.1 HexRays decompilation script
+- [x] Analyze plugin structure and exported functions
+- [x] Create IDA Pro 6.1 HexRays decompilation script
 - [ ] Test script functionality
 - [ ] Prepare decompilation environment
 

@@ -4,7 +4,7 @@
 
 ### Current Phase: Phase 3 - Decompilation Setup (IN PROGRESS)
 
-### Progress: 14/55 tasks completed (25%)
+### Progress: 15/55 tasks completed (27%)
 
 ## Completed Tasks
 - [x] Project structure created
@@ -14,9 +14,9 @@
 - [x] Access Emu-Russia forum for GPU plugin information
 - [x] Research PSEmuPro GPU plugin API specifications
 - [x] Download and analyze Pcsx source code for reference
-- [x] Identify target GPU plugin version (0.34) for reverse engineering
+- [x] Identify target GPU plugin version (1.64) for reverse engineering
 - [x] Project directory structure organized
-- [x] Phase 2: Target Selection initiated
+- [x] Phase 2: Target Selection completed
 - [x] GPU plugin archives verified
 - [x] gpu_plugins directory created
 - [x] Documentation updated
@@ -25,13 +25,18 @@
 - [x] Configuration file gpuBladeSoft-1.64.ini identified
 - [x] Language files (Russian) available
 - [x] Changelog.md updated with version 1.40-1.64 history
+- [x] IDA Pro 6.1 HexRays decompilation script created
+- [x] Decompilation script documented in scripts/README.md
+- [x] scripts/ directory created with decompile.py
+- [x] Module classification system implemented
+- [x] Output structure designed for organized decompilation
 
 ## Next Steps
-1. Analyze plugin structure and exported functions from version 1.64
-2. Create IDA Pro 6.1 HexRays decompilation script
-3. Load DLL in IDA Pro and run decompilation
-4. Organize decompiled code into modules
-5. Begin source code recovery
+1. Test decompilation script with IDA Pro 6.1
+2. Load DLL in IDA Pro and run decompilation
+3. Organize decompiled code into modules
+4. Begin source code recovery
+5. Analyze exported functions from version 1.64
 
 ## Documentation Structure
 - `.gigacode/plans/gpu-plugin-restoration-plan.md` - Main project plan (10 phases)
@@ -40,6 +45,7 @@
 - `.gigacode/plans/decompilation-script.md` - Decompilation script documentation
 - `.gigacode/plans/progress.md` - Progress tracking
 - `.gigacode/plans/PROJECT_STATUS.md` - Current project status
+- `scripts/README.md` - Decompilation script usage guide
 
 ## Target Information
 - **Target**: PSEmuPro GPU plugin for Windows
@@ -64,6 +70,21 @@
 - `LFS/extracted/plugins/gpuBladeSoft-1.64.idb` - IDA Pro database
 - `LFS/extracted/configs/gpuBladeSoft-1.64.ini` - Configuration file
 - `LFS/extracted/shaders/` - Shader files compatible with gpuPeteOGL2
+
+## Script Features
+- Automatic function detection with module classification
+- Module-based organization (15+ modules)
+- Error handling and logging
+- Comprehensive statistics generation
+- Individual function and module file output
+
+## Version 1.64 Features
+- Multi-threaded renderer (1-6 threads configurable)
+- Internal resolution up to 16x16
+- Custom aspect ratio option
+- Windows (x86) and Linux (x86_64) builds
+- Shader compatibility with gpuPeteOGL2
+- Fixed shader parameters and negative offset/screen scaling
 
 ## Notes
 - All documentation and comments in English
