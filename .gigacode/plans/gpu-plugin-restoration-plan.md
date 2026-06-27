@@ -3,18 +3,19 @@
 ## Project Overview
 This project aims to restore the source code for a GPU plugin for PSEmuPro (PlayStation emulator) through reverse engineering. The original author (edgbla from emu-russia) has not released the source code, so we will use decompilation techniques to recover the implementation.
 
+**IMPORTANT NOTICE**: edgbla from emu-russia forum refused to open the GPU plugin source code, making this reverse engineering project necessary.
+
 ## Current State
 - **Project Directory**: `c:\\Work\\gpuBladeSoft`
 - **Git Status**: Initialized with LFS support
 - **Current Files**: README.md, LICENSE, Changelog.md
 - **Repository**: git@github.com:gigacode/gpuBladeSoft.git (hypothetical)
-- **Target Version**: 1.64 (extracted in LFS/extracted/plugins/gpuBladeSoft-1.64)
-- **Current Phase**: Phase 3 - Decompilation Setup
+- **Target Version**: 1.64 (extracted in LFS)
+- **Current Phase**: Phase 3 - Decompilation Setup (COMPLETED)
 - **Binary Files Available**:
-  - `LFS/extracted/plugins/gpuBladeSoft-1.64/` - Extracted version 1.64
-  - `LFS/extracted/plugins/gpuBladeSoft-1.64.idb` - IDA Pro database
-  - `LFS/extracted/configs/gpuBladeSoft-1.64.ini` - Configuration file
-  - `LFS/extracted/shaders/` - Shader files compatible with gpuPeteOGL2
+  - `LFS/gpuBladeSoft-1.64.dll` - Windows x86 plugin binary
+  - `LFS/gpuBladeSoft-1.64.idb` - IDA Pro 6.8 database
+  - `LFS/gpuBladeSoft-1.64-Windows-x86.7z` - Original 7z archive
 
 ## Phase 1: Information Gathering and Research
 
@@ -54,7 +55,7 @@ gpuBladeSoft/
 │   ├── hexrays/          # HexRays output
 │   └── modules/          # Reorganized modules
 ├── scripts/               # Automation scripts
-│   ├── decompile.py      # IDA decompilation script
+│   ├── decompile.py      # IDA decompilation script (Python)
 │   └── process.py        # Post-processing scripts
 └── src/                   # Recovered source code
     ├── gpu_core/         # Core GPU functionality
@@ -101,27 +102,33 @@ gpuBladeSoft/
 
 ## Phase 5: Create Decompilation Script
 
-### 5.1 Develop IDA Pro 6.1 HexRays decompilation script
+### 5.1 Develop IDA Pro 6.8 Python decompilation script
 - Script must load DLL in IDA Pro
 - Extract all decompiled functions
 - Save each function to separate text file
 - Handle naming conventions and comments
+- Support stack pointer fixing
+- Provide disassembly fallback for failed decompilations
 
 ### 5.2 Script features
 - Automatic function detection
 - Module-based organization
 - Error handling and logging
 - Progress tracking
+- Stack pointer issue detection and fixing
+- Disassembly fallback for functions that fail to decompile
 
 ## Phase 6: Decompile Target Plugin
 
-### 6.1 Load plugin in IDA Pro 6.1
+### 6.1 Load plugin in IDA Pro 6.8
 - Manual step: Load DLL in IDA Pro
 - Ensure proper analysis
+- Wait for auto-analysis completion
 
 ### 6.2 Run decompilation script
 - Execute script to extract HexRays output
 - Verify all functions are decompiled
+- Review any errors or warnings
 
 ### 6.3 Organize decompiled output
 - Group functions by module
@@ -202,9 +209,9 @@ gpuBladeSoft/
 
 ## Dependencies and Tools
 
-- IDA Pro 6.1 (with HexRays)
+- IDA Pro 6.8 (with HexRays)
 - Git LFS
-- Python 3.x (for automation scripts)
+- Python 2.7/3.x (for automation scripts)
 - C compiler for verification
 - Pcsx source code (reference)
 
@@ -224,3 +231,6 @@ gpuBladeSoft/
 - All operations must be documented in English as per requirements
 - Git LFS will be used to manage large binary files (emulator archives)
 - The final goal is to produce compilable, well-documented source code
+- **IMPORTANT**: edgbla from emu-russia refused to share the GPU plugin source code, making this reverse engineering project necessary
+- decompile.idc script has been deleted (replaced by decompile.py for IDA Pro 6.8)
+- LFS contains: gpuBladeSoft-1.64-Windows-x86.7z, gpuBladeSoft-1.64.dll, gpuBladeSoft-1.64.idb

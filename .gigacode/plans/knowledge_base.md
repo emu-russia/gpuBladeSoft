@@ -3,7 +3,7 @@
 ## Project Information
 - **Project Name**: gpuBladeSoft - PSEmuPro GPU Plugin Source Code Restoration
 - **Original Author**: edgbla (emu-russia forum)
-- **Current Status**: Phase 3 - Decompilation Setup (IN PROGRESS)
+- **Current Status**: Phase 3 - Decompilation Setup (COMPLETED)
 - **Target Version**: 1.64 (latest Windows version, 25 Aug 2019)
 
 ## Key Resources
@@ -66,10 +66,9 @@ extern GPUplugin GPUpluginInterface;
 - **Author**: edgbla (user ID: 735)
 
 ### Available Binary Files
-- `LFS/extracted/plugins/gpuBladeSoft-1.64/` - Extracted version 1.64
-- `LFS/extracted/plugins/gpuBladeSoft-1.64.idb` - IDA Pro database
-- `LFS/extracted/configs/gpuBladeSoft-1.64.ini` - Configuration file
-- `LFS/extracted/shaders/` - Shader files compatible with gpuPeteOGL2
+- `LFS/gpuBladeSoft-1.64.dll` - Windows x86 plugin binary
+- `LFS/gpuBladeSoft-1.64.idb` - IDA Pro 6.8 database
+- `LFS/gpuBladeSoft-1.64-Windows-x86.7z` - Original 7z archive
 
 ## Target Selection Criteria
 
@@ -120,6 +119,8 @@ extern GPUplugin GPUpluginInterface;
 - Save to separate files
 - Include function names and comments
 - Handle module organization
+- Support stack pointer fixing
+- Provide disassembly fallback for failed decompilations
 
 ## Documentation Created
 
@@ -151,9 +152,10 @@ extern GPUplugin GPUpluginInterface;
 - PlayStation GPU hardware documentation
 - Pcsx source code
 - Emu-Russia forum discussions
+- Changelog.md - Version history and features
 
 ## Progress
-- **Phase**: Decompilation Setup (IN PROGRESS)
+- **Phase**: Decompilation Setup (COMPLETED)
 - **Tasks Completed**: 14
 - **Target Selected**: Version 1.64
 - **Next Phase**: Decompilation
@@ -162,5 +164,6 @@ extern GPUplugin GPUpluginInterface;
 - [x] Binary extracted and verified
 - [x] Plugin structure analyzed
 - [x] Available files documented
-- [ ] Create decompilation script
-- [ ] Test decompilation environment
+- [x] Create decompilation script (decompile.py for IDA Pro 6.8)
+- [x] Test decompilation environment
+- [x] IDC script deleted (replaced by Python version)

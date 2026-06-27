@@ -1,4 +1,4 @@
-# PSEmuPro GPU Plugin Research
+# GPU Plugin Research
 
 ## Overview
 This document tracks our research into PSEmuPro GPU plugin specifications and available versions.
@@ -145,11 +145,10 @@ void GPUvblank(int count);
 
 ## Available Binary Files
 
-### LFS/extracted/plugins/gpuBladeSoft-1.64/
-- Extracted version 1.64 plugin
-- Configuration file: gpuBladeSoft-1.64.ini
-- Language files (Russian)
-- Shader files compatible with gpuPeteOGL2
+### LFS/
+- `gpuBladeSoft-1.64.dll` - Windows x86 plugin binary
+- `gpuBladeSoft-1.64.idb` - IDA Pro 6.8 database
+- `gpuBladeSoft-1.64-Windows-x86.7z` - Original 7z archive
 
 ## Technical Specifications
 
@@ -197,7 +196,7 @@ The GPU plugin emulates the PlayStation GPU which includes:
 1. Access Pcsx source code for reference
 2. Access Emu-Russia forum for plugin versions
 3. Download and analyze target GPU plugin
-4. Create decompilation script
+4. Create decompilation script (decompile.py for IDA Pro 6.8)
 5. Begin reverse engineering process
 6. Analyze multi-threaded renderer architecture
 7. Document shader compatibility with gpuPeteOGL2
@@ -214,7 +213,7 @@ The GPU plugin emulates the PlayStation GPU which includes:
 - **Tasks Completed**: 14
 - **Target Selected**: Version 1.64
 - **Directory Structure**: Organized
-- **Next Phase**: Decompilation Setup
+- **Next Phase**: Decompilation
 
 ### Phase 2 Completed Items
 - [x] Directory structure organized (gpu_plugins/, decompiled/, etc.)
@@ -224,3 +223,10 @@ The GPU plugin emulates the PlayStation GPU which includes:
 - [x] Binary files documented
 - [x] Shader compatibility confirmed
 - [x] Phase 2 progress tracking updated
+
+### Phase 3 Completed Items
+- [x] Create decompilation script (decompile.py for IDA Pro 6.8)
+- [x] Test script functionality (verified working)
+- [x] IDC script deleted (replaced by Python version)
+- [x] Stack pointer fix support implemented
+- [x] Disassembly fallback for failed decompilations

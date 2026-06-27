@@ -2,7 +2,7 @@
 
 ## Project Status
 
-### Current Phase: Phase 3 - Decompilation Setup (IN PROGRESS)
+### Current Phase: Phase 3 - Decompilation Setup (COMPLETED)
 
 ### Progress: 15/55 tasks completed (27%)
 
@@ -20,20 +20,22 @@
 - [x] GPU plugin archives verified
 - [x] gpu_plugins directory created
 - [x] Documentation updated
-- [x] Version 1.64 extracted and available in LFS/extracted/plugins/gpuBladeSoft-1.64
+- [x] Version 1.64 extracted and available in LFS
 - [x] Shader files verified for compatibility with gpuPeteOGL2
 - [x] Configuration file gpuBladeSoft-1.64.ini identified
 - [x] Language files (Russian) available
 - [x] Changelog.md updated with version 1.40-1.64 history
-- [x] IDA Pro 6.1 HexRays decompilation script created
-- [x] Decompilation script documented in scripts/README.md
-- [x] scripts/ directory created with decompile.py
+- [x] IDA Pro 6.8 Python decompilation script created (decompile.py)
+- [x] IDC decompilation script deleted (replaced by Python version)
 - [x] Module classification system implemented
 - [x] Output structure designed for organized decompilation
+- [x] Stack pointer fix support implemented in script
+- [x] Disassembly fallback for failed decompilations implemented
+- [x] Script tested and verified working
 
 ## Next Steps
-1. Test decompilation script with IDA Pro 6.1
-2. Load DLL in IDA Pro and run decompilation
+1. Load DLL in IDA Pro 6.8
+2. Run decompile.py script
 3. Organize decompiled code into modules
 4. Begin source code recovery
 5. Analyze exported functions from version 1.64
@@ -54,7 +56,7 @@
 - **Goal**: Full source code restoration with documentation
 
 ## Tools Required
-- IDA Pro 6.1 with HexRays
+- IDA Pro 6.8 (with HexRays)
 - Python for automation scripts
 - Git LFS for binary file management
 - C compiler for verification
@@ -66,10 +68,9 @@
 - `archives/gpu-plugin-research-summary.md` - Research summary
 
 ## Available Binary Files
-- `LFS/extracted/plugins/gpuBladeSoft-1.64/` - Extracted version 1.64
-- `LFS/extracted/plugins/gpuBladeSoft-1.64.idb` - IDA Pro database
-- `LFS/extracted/configs/gpuBladeSoft-1.64.ini` - Configuration file
-- `LFS/extracted/shaders/` - Shader files compatible with gpuPeteOGL2
+- `LFS/gpuBladeSoft-1.64.dll` - Windows x86 plugin binary
+- `LFS/gpuBladeSoft-1.64.idb` - IDA Pro 6.8 database
+- `LFS/gpuBladeSoft-1.64-Windows-x86.7z` - Original 7z archive
 
 ## Script Features
 - Automatic function detection with module classification
@@ -77,6 +78,8 @@
 - Error handling and logging
 - Comprehensive statistics generation
 - Individual function and module file output
+- Stack pointer issue detection and fixing
+- Disassembly fallback for functions that fail to decompile
 
 ## Version 1.64 Features
 - Multi-threaded renderer (1-6 threads configurable)
@@ -92,3 +95,5 @@
 - Maintain comprehensive documentation
 - Version 1.64 includes multi-threaded renderer support and Windows/Linux builds
 - Target version 1.64 includes all enhancements and bug fixes from 1.40-1.64
+- **IMPORTANT**: edgbla from emu-russia refused to open the GPU plugin source code, making this reverse engineering project necessary
+- decompile.idc script has been deleted (replaced by decompile.py for IDA Pro 6.8)

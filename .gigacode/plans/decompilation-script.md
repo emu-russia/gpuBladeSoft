@@ -1,10 +1,10 @@
 # GPU Plugin Decompilation Script
 
 ## Overview
-This script is designed to automatically extract decompiled HexRays output from IDA Pro 6.1 for the PSEmuPro GPU plugin.
+This script is designed to automatically extract decompiled HexRays output from IDA Pro 6.8 for the PSEmuPro GPU plugin.
 
 ## Requirements
-- IDA Pro 6.1 with HexRays decompiler
+- IDA Pro 6.8 with HexRays decompiler
 - Python 2.7 or Python 3.x (IDA compatible)
 - HexRays decompiler license
 
@@ -14,18 +14,20 @@ This script is designed to automatically extract decompiled HexRays output from 
 3. **Error handling** - Handle decompilation failures gracefully
 4. **Progress tracking** - Track decompilation progress
 5. **Logging** - Log all operations and errors
+6. **Stack pointer fixing** - Attempt to fix stack pointer issues automatically
+7. **Disassembly fallback** - Generate disassembly listing for functions that fail to decompile
 
 ## Output Structure
 ```
 decompiled/
 ├── functions/           # Individual function files
-│   ├── GPUinit.txt
-│   ├── GPUshutdown.txt
-│   ├── GPUopen.txt
+│   ├── GPUinit.c
+│   ├── GPUshutdown.c
+│   ├── GPUopen.c
 │   └── ...
 ├── modules/            # Module-based organization
-│   ├── core.txt
-│   ├── interface.txt
+│   ├── core.c
+│   ├── interface.c
 │   └── ...
 └── logs/
     ├── decompilation.log
@@ -58,7 +60,7 @@ LOGS_DIR = os.path.join(OUTPUT_DIR, "logs")
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-IDA Pro 6.1 HexRays Decompilation Script
+IDA Pro 6.8 HexRays Decompilation Script
 Extracts decompiled functions from GPU plugin DLL
 """
 
@@ -165,7 +167,7 @@ def save_functions_to_files(functions):
         
         # Sanitize filename
         safe_name = func_name.replace('@', '_').replace('$', '_')
-        filename = "{}.txt".format(safe_name)
+        filename = "{}.c".format(safe_name)
         filepath = os.path.join(FUNCTIONS_DIR, filename)
         
         # Write to file
@@ -187,7 +189,7 @@ def save_modules(functions):
         modules[module].append(func)
     
     for module, funcs in modules.items():
-        filename = "{}.txt".format(module)
+        filename = "{}.c".format(module)
         filepath = os.path.join(MODULES_DIR, filename)
         
         with open(filepath, 'w', encoding='utf-8') as f:
@@ -257,8 +259,8 @@ if __name__ == "__main__":
 
 ## Usage Instructions
 
-1. **Load DLL in IDA Pro 6.1**
-   - Open IDA Pro 6.1
+1. **Load DLL in IDA Pro 6.8**
+   - Open IDA Pro 6.8
    - Load the GPU plugin DLL
 
 2. **Wait for Analysis**
@@ -285,6 +287,8 @@ if __name__ == "__main__":
 2. **Functions not decompiling**
    - Some functions may be too complex
    - Check error log for details
+   - Script will automatically attempt stack pointer fixing
+   - If still failing, disassembly fallback is generated
 
 3. **Output directory issues**
    - Ensure write permissions
@@ -301,3 +305,18 @@ set IDA_DEBUG=1
 2. Implement automatic module detection
 3. Add function classification heuristics
 4. Support for batch processing multiple DLLs
+
+## Script Features (Detailed)
+
+### Stack Pointer Fixing
+The script includes automatic stack pointer issue detection and fixing:
+- Detects positive SP values at function entry
+- Attempts to fix stack pointer throughout the function
+- Forces re-analysis after fixing
+
+### Disassembly Fallback
+For functions that fail to decompile, the script generates a disassembly listing:
+- C-style comment format
+- Instruction bytes displayed
+- SP delta shown for each instruction
+- Original comments preserved
