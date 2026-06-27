@@ -211,9 +211,6 @@ else:
         if not func_name:
             continue
 
-        # DEBUG
-        if current_function == 200: break
-
         # Sanitize the function name for the file system
         safe_chars = [c for c in func_name if c.isalnum() or c == '_']
         safe_func_name = "".join(safe_chars).strip()
