@@ -1,0 +1,25 @@
+int __thiscall sub_6F938C10(void *this)
+{
+  int v2; // [sp+0h] [bp-5Ch]@1
+  _DWORD *v3; // [sp+14h] [bp-48h]@1
+  char v4; // [sp+1Ch] [bp-40h]@1
+  int v5; // [sp+20h] [bp-3Ch]@1
+  int (__cdecl *v6)(int, int, __int64, void (**)(void), int *); // [sp+34h] [bp-28h]@1
+  __int16 *v7; // [sp+38h] [bp-24h]@1
+  char *v8; // [sp+3Ch] [bp-20h]@1
+  int (__cdecl *v9)(int, int, int, int, int, int, int, int, int); // [sp+40h] [bp-1Ch]@1
+  int *v10; // [sp+44h] [bp-18h]@1
+  char v11; // [sp+50h] [bp-Ch]@1
+
+  v3 = this;
+  v8 = &v11;
+  v6 = sub_6F962A50;
+  v7 = &word_6F96CC4E;
+  v9 = sub_6F938C76;
+  v10 = &v2;
+  sub_6F8A1A60((int *)&v4);
+  v5 = 1;
+  sub_6F938CA0(v3);
+  j_free_1(v3);
+  return sub_6F8A1AD0((int *)&v4);
+}

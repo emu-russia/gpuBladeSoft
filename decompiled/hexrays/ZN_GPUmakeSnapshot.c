@@ -1,0 +1,4 @@
+void ZN_GPUmakeSnapshot()
+{
+  ;
+}

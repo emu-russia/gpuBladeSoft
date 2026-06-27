@@ -1,0 +1,67 @@
+int __cdecl sub_6F721ED0(int a1, int a2, unsigned __int16 a3)
+{
+  int v3; // ecx@1
+  int result; // eax@1
+  int v5; // ebx@1
+  int v6; // ecx@1
+  int v7; // ebx@1
+  int v8; // ecx@1
+  int v9; // ebx@1
+  int v10; // ecx@1
+  int v11; // ebx@1
+  int v12; // ecx@1
+  int v13; // ecx@1
+  int v14; // ebx@1
+  int v15; // ecx@1
+  int v16; // ebx@1
+  int v17; // ecx@1
+
+  v3 = *(_DWORD *)(dword_6FD400FC + ((dword_6FD40984 & a2) << 12) + 4 * (dword_6FD40988 & a1));
+  *(_WORD *)(v3 + 12) = a3;
+  result = (a3 << 16) | a3;
+  *(_DWORD *)v3 = result;
+  v5 = dword_6FD40980;
+  *(_DWORD *)(v3 + 4) = result;
+  *(_DWORD *)(v3 + 8) = result;
+  v6 = v3 + 2 * v5;
+  *(_DWORD *)v6 = result;
+  v7 = dword_6FD40980;
+  *(_DWORD *)(v6 + 4) = result;
+  *(_DWORD *)(v6 + 8) = result;
+  *(_WORD *)(v6 + 12) = a3;
+  v8 = v6 + 2 * v7;
+  *(_DWORD *)v8 = result;
+  v9 = dword_6FD40980;
+  *(_DWORD *)(v8 + 4) = result;
+  *(_DWORD *)(v8 + 8) = result;
+  *(_WORD *)(v8 + 12) = a3;
+  v10 = v8 + 2 * v9;
+  *(_DWORD *)v10 = result;
+  v11 = dword_6FD40980;
+  *(_DWORD *)(v10 + 4) = result;
+  *(_DWORD *)(v10 + 8) = result;
+  *(_WORD *)(v10 + 12) = a3;
+  v12 = v10 + 2 * v11;
+  *(_DWORD *)v12 = result;
+  *(_DWORD *)(v12 + 4) = result;
+  *(_DWORD *)(v12 + 8) = result;
+  *(_WORD *)(v12 + 12) = a3;
+  v13 = v12 + 2 * dword_6FD40980;
+  *(_DWORD *)v13 = result;
+  v14 = dword_6FD40980;
+  *(_DWORD *)(v13 + 4) = result;
+  *(_DWORD *)(v13 + 8) = result;
+  *(_WORD *)(v13 + 12) = a3;
+  v15 = v13 + 2 * v14;
+  *(_DWORD *)v15 = result;
+  v16 = dword_6FD40980;
+  *(_DWORD *)(v15 + 4) = result;
+  *(_DWORD *)(v15 + 8) = result;
+  *(_WORD *)(v15 + 12) = a3;
+  v17 = v15 + 2 * v16;
+  *(_DWORD *)v17 = result;
+  *(_DWORD *)(v17 + 4) = result;
+  *(_DWORD *)(v17 + 8) = result;
+  *(_WORD *)(v17 + 12) = a3;
+  return result;
+}

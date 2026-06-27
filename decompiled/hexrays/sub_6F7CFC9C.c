@@ -1,0 +1,4 @@
+void __cdecl sub_6F7CFC9C(int a1, int a2, int a3, int a4, int a5, char a6)
+{
+  JUMPOUT(loc_6F7CFCA0);
+}

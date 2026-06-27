@@ -1,0 +1,24 @@
+int __cdecl sub_6F71C9E0(_WORD *a1, int a2, int a3, int a4, unsigned __int8 a5, unsigned __int8 a6, unsigned __int8 a7)
+{
+  int v7; // edx@1
+  int v8; // eax@1
+  signed int v9; // esi@1
+  int v10; // esi@1
+  int v11; // edx@1
+  int v12; // eax@1
+  int result; // eax@1
+
+  v7 = 4 * *a1;
+  v8 = dword_6FBBFE50[v7] + ((signed int)a5 >> 2);
+  v9 = dword_6FBBFE54[v7] + ((signed int)a6 >> 2) - 255;
+  v10 = 4 * ((v9 >> 31) & v9) + 1020;
+  LOWORD(v10) = v10 & 0x3E0;
+  v11 = (((dword_6FBBFE50[v7 + 2] + ((signed int)a7 >> 2) - 255) & ((dword_6FBBFE50[v7 + 2] + ((signed int)a7 >> 2) - 255) >> 31))
+       + 255) << 7;
+  LOWORD(v11) = v11 & 0x7C00;
+  v12 = v11 | v10 | ((((v8 - 255) & ((v8 - 255) >> 31)) + 255) >> 3) & 0x1F;
+  *a1 = v12;
+  result = (((HIBYTE(word_6FBB979C) >> 3) & 1) << 15) | v12;
+  *a1 = result;
+  return result;
+}

@@ -1,0 +1,4 @@
+int setlocale()
+{
+  return setlocale();
+}

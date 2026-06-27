@@ -1,0 +1,21 @@
+int __cdecl sub_6F721A90(int a1, int a2, int a3)
+{
+  int result; // eax@1
+  int v4; // edx@1
+  int v5; // ecx@1
+  int v6; // edx@1
+
+  result = a3;
+  v4 = *(_DWORD *)(dword_6FD400F4 + ((dword_6FD40984 & a2) << 12) + 4 * (dword_6FD40988 & a1));
+  *(_DWORD *)v4 = a3;
+  v5 = dword_6FD40980;
+  *(_DWORD *)(v4 + 4) = a3;
+  *(_DWORD *)(v4 + 8) = a3;
+  *(_DWORD *)(v4 + 12) = a3;
+  v6 = v4 + 4 * v5;
+  *(_DWORD *)v6 = a3;
+  *(_DWORD *)(v6 + 4) = a3;
+  *(_DWORD *)(v6 + 8) = a3;
+  *(_DWORD *)(v6 + 12) = a3;
+  return result;
+}

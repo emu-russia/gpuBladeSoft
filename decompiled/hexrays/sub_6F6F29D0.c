@@ -1,0 +1,40 @@
+unsigned int __cdecl sub_6F6F29D0(_WORD *a1, _DWORD *a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9)
+{
+  unsigned int result; // eax@1
+  signed int v10; // ecx@2
+  int v11; // edx@2
+  unsigned int v12; // ebx@2
+  int v13; // eax@2
+  int v14; // edx@3
+  int v15; // eax@3
+  int v16; // ebx@6
+
+  result = dword_6FBBFE44(a8, a9);
+  if ( BYTE3(result) & 0x40 )
+  {
+    v10 = (unsigned __int8)result;
+    v11 = BYTE1(result);
+    v12 = result >> 31;
+    v13 = (unsigned __int8)(result >> 16);
+    if ( v12 )
+    {
+      v16 = 16 * *a1;
+      LOWORD(v16) = 4
+                  * ((*(_WORD *)((char *)dword_6FBBFE54 + v16) - v11) & ~((*(int *)((char *)dword_6FBBFE54 + v16) - v11) >> 31)) & 0x3E0 | (((*(int *)((char *)dword_6FBBFE50 + v16) - v10) & ~((*(int *)((char *)dword_6FBBFE50 + v16) - v10) >> 31)) >> 3) & 0x1F | (((unsigned __int16)(*(_WORD *)((char *)dword_6FBBFE58 + v16) - v13) & (unsigned __int16)~((*(int *)((char *)dword_6FBBFE58 + v16) - v13) >> 31)) << 7) & 0x7C00 | 0x8000;
+      result = (unsigned __int16)v16;
+      *a1 = v16;
+    }
+    else
+    {
+      v14 = 4 * v11;
+      v15 = v13 << 7;
+      LOWORD(v14) = v14 & 0x3E0;
+      LOWORD(v15) = v15 & 0x7C00;
+      result = (v10 >> 3) | v14 | v15;
+      *a1 = result;
+      result = (signed __int16)result;
+    }
+    *a2 = dword_6FCBFE50[result];
+  }
+  return result;
+}
